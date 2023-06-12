@@ -1,0 +1,41 @@
+<div>
+    <div id="botonera" class="btn-group-vertical float-start">
+        <button (click)="power()" class="btn" [class]="this.encendido ? 'btn-success':'btn-danger'"><i class="bi bi-power"></i></button>
+        <button (click)="cargarBateria()" class="btn btn-outline-primary">Cargar baterías</button>
+        <button (click)="rellenarJabon()" class="btn btn-outline-primary">Rellenar jabón</button>
+    </div>
+
+    <div class="float-start">
+        <div  >
+            <img (click)="dispensar()"  [src]="this.encendido ? this.imagenOn : this.imagenOf" class="jabonera img-fluid" [alt]="'Imagen jabonera' +(encendido ? 'encendida': '')" />
+        </div>
+        <div id="datos">
+            <p class="h4 text-center">Nombre {{nombre}}</p>
+
+            <label for="bateria" class="form-label">
+                <i  [ngClass]="{
+                    'bi bi-battery-full': this.bateria >= 51 && this.bateria<=100 && this.cargando == false,
+                    'bi bi-battery-half': this.bateria >= 16 && this.bateria <=50 && this.cargando == false,
+                    'bi bi-battery': this.bateria >= 0 && this.bateria <=15 && this.cargando == false,
+                    'bi bi-battery-charging': this.cargando 
+                }"></i>
+                <span>cantidad% {{bateria}}</span>
+            </label>
+            <div class="progress" id="bateria">
+                <div class="progress-bar" [class]="{
+                    'bg-success': bateria >= 15,
+                    'bg-danger': bateria < 15
+                }"   [style.width.%]="bateria"></div>
+            </div>
+            <hr />
+            <label for="deposito" class="form-label">
+                <i class="bi bi-moisture"></i>
+                <span>{{ nivelActual}} ml / {{nivelMaximo}} ml</span>
+            </label>
+            <div class="progress" id="deposito" >
+                <div class="progress-bar bg-info" [style.width.%]="nivelActual*100/nivelMaximo"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
