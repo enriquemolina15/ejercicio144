@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div id="botonera" class="btn-group-vertical float-start">
         <button (click)="power()" class="btn" [class]="this.encendido ? 'btn-success':'btn-danger'"><i class="bi bi-power"></i></button>
         <button (click)="cargarBateria()" class="btn btn-outline-primary">Cargar baterías</button>
@@ -6,8 +6,8 @@
     </div>
 
     <div class="float-start">
-        <div  >
-            <img (click)="dispensar()"  [src]="this.encendido ? this.imagenOn : this.imagenOf" class="jabonera img-fluid" [alt]="'Imagen jabonera' +(encendido ? 'encendida': '')" />
+        <div (mousedown)="down()" (mouseup)="up()">
+            <img (click)="dispensar()" [src]="this.encendido ? this.imagenOn : this.imagenOf" class="jabonera img-fluid" [alt]="'Imagen jabonera' +(encendido ? 'encendida': '')" />
         </div>
         <div id="datos">
             <p class="h4 text-center">Nombre {{nombre}}</p>

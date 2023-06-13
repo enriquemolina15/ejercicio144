@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-jabonera',
@@ -37,13 +37,16 @@ export class JaboneraComponent {
       this.encendido = false;
     }
   }
-   
+  public acercar : boolean = false;
+  
   public dispensar(){
     if(this.encendido == true){
-    this.nivelActual = this.nivelActual - this.cantidadDispensada;
-    this.bateria = this.bateria - 3;
-    this.comprobarAjustes();
+      this.nivelActual = this.nivelActual - this.cantidadDispensada;
+      this.bateria = this.bateria - 3;
+      this.comprobarAjustes();
     }
+    
+    
   }
   public rellenarJabon(){
     
@@ -73,4 +76,14 @@ export class JaboneraComponent {
     this.encendido = !this.encendido
     this.comprobarAjustes();
   }
+  @Output() jaboneraup = new EventEmitter<string>();
+  
+  up() {
+      this.jaboneraup.emit("'moveRight'");
+  }
+  @Output() jaboneradown = new EventEmitter<string>();
+  down(){
+    this.jaboneradown.emit("'moveLeft'")
+  }
+  
 }

@@ -1,5 +1,11 @@
-
 .moveLeft {
-    transition: transform 1s ease;
-    transform: translateX(-100px);
-  }
+  margin-top: 20px;
+  transition: transform 1s ease;
+  transform: translateX(-400px);
+}
+
+.moveRight {
+  margin-top: 20px;
+  transition: transform 1s ease;
+  transform: translateX(-100px);
+}

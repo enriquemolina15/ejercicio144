@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mano',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./mano.component.css']
 })
 export class ManoComponent {
+  @Input()
+  public texto: string;
+  constructor() {
+    this.texto = "moveRight"
+  }
 }
+
+

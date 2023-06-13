@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ejercicio144';
+  manoTexto!: string ;
+  changeManoTexto(newTexto: string) {
+    this.manoTexto = newTexto;
+  }
 }
